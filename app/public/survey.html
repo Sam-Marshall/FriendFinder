@@ -12,10 +12,14 @@
 <body>
     <div class='container'>
         <div class='row'>
-            <span class='col-sm-12'>
-        	<h1>Survey Questions</h1>
-        	<hr>
-		</span>
+            <div class='col-sm-12'>
+                <a href='/'>
+                    <button type='button' class='btn btn-default' id='homeBtn'><span class='glyphicon glyphicon-home'></span></button>
+                </a>
+                <h1>Survey Questions</h1>
+                <br>
+                <hr>
+            </div>
             <div class='row'>
                 <div class='col-sm-12'>
                     <div class='panel panel-default'>
@@ -37,7 +41,7 @@
                                     <h3>Question 1</h3>
                                     <label for='name'>You find it difficult to introduce yourself to other people</label>
                                     <br>
-                                    <select required name='questionOne' id='questionOne'>
+                                    <select name='questionOne' id='questionOne' required>
                                         <option value="" disabled selected>Select An Option</option>
                                         <option value='1'>1 (Strongly Disagree)</option>
                                         <option value='2'>2</option>
@@ -50,7 +54,7 @@
                                     <h3>Question 2</h3>
                                     <label for='name'>You often get so lost in thoughts that you ignore or forget your surroundings</label>
                                     <br>
-                                    <select required name='questionTwo' id='questionTwo'>
+                                    <select name='questionTwo' id='questionTwo' required>
                                         <option value="" disabled selected>Select An Option</option>
                                         <option value='1'>1 (Strongly Disagree)</option>
                                         <option value='2'>2</option>
@@ -63,7 +67,7 @@
                                     <h3>Question 3</h3>
                                     <label for='name'>You try to respond to your emails as soon as possible and cannot stand a messy inbox</label>
                                     <br>
-                                    <select required name='questionThree' id='questionThree'>
+                                    <select name='questionThree' id='questionThree' required>
                                         <option value="" disabled selected>Select An Option</option>
                                         <option value='1'>1 (Strongly Disagree)</option>
                                         <option value='2'>2</option>
@@ -72,11 +76,11 @@
                                         <option value='5'>5 (Strongly Agree)</option>
                                     </select>
                                 </div>
-<!--                                 <div class='form-group'>
+                                <div class='form-group'>
                                     <h3>Question 4</h3>
                                     <label for='name'>You find it easy to stay relaxed and focused even when there is some pressure</label>
                                     <br>
-                                    <select required name='questionFour' id='questionFour'>
+                                    <select name='questionFour' id='questionFour' required>
                                         <option value="" disabled selected>Select An Option</option>
                                         <option value='1'>1 (Strongly Disagree)</option>
                                         <option value='2'>2</option>
@@ -89,7 +93,7 @@
                                     <h3>Question 5</h3>
                                     <label for='name'>You rarely do something just out of sheer curiosity</label>
                                     <br>
-                                    <select required name='questionFive' id='questionFive'>
+                                    <select name='questionFive' id='questionFive' required>
                                         <option value="" disabled selected>Select An Option</option>
                                         <option value='1'>1 (Strongly Disagree)</option>
                                         <option value='2'>2</option>
@@ -102,7 +106,7 @@
                                     <h3>Question 6</h3>
                                     <label for='name'>Winning a debate matters more to you than making sure no one gets upset</label>
                                     <br>
-                                    <select required name='questionSix' id='questionSix'>
+                                    <select name='questionSix' id='questionSix' required>
                                         <option value="" disabled selected>Select An Option</option>
                                         <option value='1'>1 (Strongly Disagree)</option>
                                         <option value='2'>2</option>
@@ -115,7 +119,7 @@
                                     <h3>Question 7</h3>
                                     <label for='name'>You consider yourself more practical than creative</label>
                                     <br>
-                                    <select required name='questionSeven' id='questionSeven'>
+                                    <select name='questionSeven' id='questionSeven' required>
                                         <option value="" disabled selected>Select An Option</option>
                                         <option value='1'>1 (Strongly Disagree)</option>
                                         <option value='2'>2</option>
@@ -128,7 +132,7 @@
                                     <h3>Question 8</h3>
                                     <label for='name'>Your emotions control you more than you control them</label>
                                     <br>
-                                    <select required name='questionEight' id='questionEight'>
+                                    <select name='questionEight' id='questionEight' required>
                                         <option value="" disabled selected>Select An Option</option>
                                         <option value='1'>1 (Strongly Disagree)</option>
                                         <option value='2'>2</option>
@@ -141,7 +145,7 @@
                                     <h3>Question 9</h3>
                                     <label for='name'>It is often difficult for you to relate to other people’s feelings</label>
                                     <br>
-                                    <select required name='questionNine' id='questionNine'>
+                                    <select name='questionNine' id='questionNine' required>
                                         <option value="" disabled selected>Select An Option</option>
                                         <option value='1'>1 (Strongly Disagree)</option>
                                         <option value='2'>2</option>
@@ -154,7 +158,7 @@
                                     <h3>Question 10</h3>
                                     <label for='name'>Your work style is closer to random energy spikes than to a methodical and organized approach</label>
                                     <br>
-                                    <select required name='questionTen' id='questionTen'>
+                                    <select name='questionTen' id='questionTen' class='required'>
                                         <option value="" disabled selected>Select An Option</option>
                                         <option value='1'>1 (Strongly Disagree)</option>
                                         <option value='2'>2</option>
@@ -162,43 +166,69 @@
                                         <option value='4'>4</option>
                                         <option value='5'>5 (Strongly Agree)</option>
                                     </select>
-                                </div> -->
+                                </div>
                             </form>
                             <button class='btn btn-primary btn-lg' id='surverySubmit'><span class='glyphicon glyphicon-ok'></span> Submit</button>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class='modal fade' role='dialog' id='resultsModal'>
+                <div class='modal-dialog'>
+                    <div class='modal-content'>
+                        <div class='modal-header'>
+                            <button type='button' class='close' data-dismiss='modal'>x</button>
+                            <h2 class='modal-title'>Your New Best Friend!</h2>
+                        </div>
+                        <div class='modal-body'>
+                            <h2 id='friendName'></h2>
+                            <img id='friendImage' src='#' style="width: 100%; height: auto">
+                        </div>
+                        <div class='modal-footer'>
+                            <button type='button' class='btn bn-default' data-dismiss='modal'>Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <script type="text/javascript">
+        <footer>
+            <a href="/api/friends">API Friends List</a> |
+            <a href="#">GitHub Repo</a>
+        </footer>
+    </div>
+    <script type="text/javascript">
+    $('#surverySubmit').on('click', function(event) {
 
-        $('#surverySubmit').on('click', function(event) {
+        var newFriend = {
 
-            var newFriend = {
+            name: $('#name').val().trim(),
+            photoLink: $('#photoLink').val().trim(),
+            scores: [
+                parseInt($('#questionOne').val()),
+                parseInt($('#questionTwo').val()),
+                parseInt($('#questionThree').val()),
+                parseInt($('#questionFour').val()),
+                parseInt($('#questionFive').val()),
+                parseInt($('#questionSix').val()),
+                parseInt($('#questionSeven').val()),
+                parseInt($('#questionEight').val()),
+                parseInt($('#questionNine').val()),
+                parseInt($('#questionTen').val())
+            ]
 
-                name: $('#name').val().trim(),
-                photoLink: $('#photoLink').val().trim(),
-                scores: [
-                    parseInt($('#questionOne').val()),
-                    parseInt($('#questionTwo').val()),
-                    parseInt($('#questionThree').val()),
-                    // $('#questionFour').val(),
-                    // $('#questionFive').val(),
-                    // $('#questionSix').val(),
-                    // $('#questionSeven').val(),
-                    // $('#questionEight').val(),
-                    // $('#questionNine').val(),
-                    // $('#questionTen').val()
-                ]
-
-            }
+        }
 
         $.post('/api/new', newFriend).done(function(data) {
-                console.log(data);
-            });
+            var bestFriendName = data.name;
+            var bestFriendPicture = data.photoLink;
+
+            $('#friendName').html(bestFriendName);
+            $('#friendImage').attr("src", bestFriendPicture);
+            $('#resultsModal').modal('toggle');
 
         });
-        </script>
+    });
+    </script>
 </body>
 
 </html>
