@@ -7,19 +7,20 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 
 <body>
     <div class='container'>
         <div class='row'>
-            <div class='col-sm-12'>
+            <div class='col-sm-12' id='surveyTitle'>
                 <a href='/'>
                     <button type='button' class='btn btn-default' id='homeBtn'><span class='glyphicon glyphicon-home'></span></button>
                 </a>
                 <h1>Survey Questions</h1>
                 <br>
-                <hr>
             </div>
+            <hr>
             <div class='row'>
                 <div class='col-sm-12'>
                     <div class='panel panel-default'>
@@ -182,7 +183,7 @@
                         </div>
                         <div class='modal-body'>
                             <h2 id='friendName'></h2>
-                            <img id='friendImage' src='#' style="width: 100%; height: auto">
+                            <img id='friendImage' src='#'>
                         </div>
                         <div class='modal-footer'>
                             <button type='button' class='btn bn-default' data-dismiss='modal'>Close</button>
@@ -191,42 +192,48 @@
                 </div>
             </div>
         </div>
-        <footer>
-            <a href="/api/friends">API Friends List</a> |
+        <footer id="surveyFooter">
+            <a href="/api/friends" id="friendsApi">API Friends List</a> |
             <a href="#">GitHub Repo</a>
         </footer>
     </div>
     <script type="text/javascript">
     $('#surverySubmit').on('click', function(event) {
 
-        var newFriend = {
+        event.preventDefault();
 
-            name: $('#name').val().trim(),
-            photoLink: $('#photoLink').val().trim(),
-            scores: [
-                parseInt($('#questionOne').val()),
-                parseInt($('#questionTwo').val()),
-                parseInt($('#questionThree').val()),
-                parseInt($('#questionFour').val()),
-                parseInt($('#questionFive').val()),
-                parseInt($('#questionSix').val()),
-                parseInt($('#questionSeven').val()),
-                parseInt($('#questionEight').val()),
-                parseInt($('#questionNine').val()),
-                parseInt($('#questionTen').val())
-            ]
+        if (!isNaN(parseInt($('#questionOne').val())) && !isNaN(parseInt($('#questionTwo').val())) && !isNaN(parseInt($('#questionThree').val())) && !isNaN(parseInt($('#questionFour').val())) && !isNaN(parseInt($('#questionFive').val())) && !isNaN(parseInt($('#questionSix').val())) && !isNaN(parseInt($('#questionSeven').val())) && !isNaN(parseInt($('#questionEight').val())) && !isNaN(parseInt($('#questionNine').val())) && !isNaN(parseInt($('#questionTen').val())) && $('#name').val().trim() !== '' && $('#photoLink').val().trim() !== '') {
+            var newFriend = {
 
+                name: $('#name').val().trim(),
+                photoLink: $('#photoLink').val().trim(),
+                scores: [
+                    parseInt($('#questionOne').val()),
+                    parseInt($('#questionTwo').val()),
+                    parseInt($('#questionThree').val()),
+                    parseInt($('#questionFour').val()),
+                    parseInt($('#questionFive').val()),
+                    parseInt($('#questionSix').val()),
+                    parseInt($('#questionSeven').val()),
+                    parseInt($('#questionEight').val()),
+                    parseInt($('#questionNine').val()),
+                    parseInt($('#questionTen').val())
+                ]
+
+            }
+
+            $.post('/api/new', newFriend).done(function(data) {
+                var bestFriendName = data.name;
+                var bestFriendPicture = data.photoLink;
+
+                $('#friendName').html(bestFriendName);
+                $('#friendImage').attr("src", bestFriendPicture);
+                $('#resultsModal').modal('toggle');
+
+            });
+        } else {
+            alert('Please fill in all the fields!');
         }
-
-        $.post('/api/new', newFriend).done(function(data) {
-            var bestFriendName = data.name;
-            var bestFriendPicture = data.photoLink;
-
-            $('#friendName').html(bestFriendName);
-            $('#friendImage').attr("src", bestFriendPicture);
-            $('#resultsModal').modal('toggle');
-
-        });
     });
     </script>
 </body>
