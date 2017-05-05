@@ -14,6 +14,7 @@ module.exports = function(app, friends) {
 
         if (friends.length === 1) {
             message = 'You are the first applicant!';
+            res.json('You are the first applicant!');
         } else {
             for (var i = 0; i < friends.length; i++) {
 
@@ -51,7 +52,9 @@ module.exports = function(app, friends) {
 
             }
             message = friends[indexOfSmallest].name + ' is your new best friend';
+            res.json(friends[indexOfSmallest]);
         }
-        res.json(friends[indexOfSmallest]);
+
+
     });
 }

@@ -8,6 +8,18 @@
     text-align: center;
     font-family: 'Georgia';
     background-color: #F0F8ff;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #00008B;
+}
+
+.jumbotron h1 {
+    font-size: 36px;
+    font-size: 6vw;
+}
+.jumbotron h2 {
+    font-size: 28px;
+    font-size: 3vw;
 }
 
 body {
@@ -21,6 +33,9 @@ footer a {
     background-color: #F0F8ff;
     padding: 10px;
     border-radius: 10px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #00008B;
 }
 
 #homeFooter {
@@ -37,6 +52,9 @@ footer a {
     margin-top: 10px;
     margin-bottom: 10px;
     border-radius: 10px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #00008B;
 }
 
 #surveyTitle h1 {
@@ -52,9 +70,24 @@ footer a {
 
 #homeBtn {
     margin: 5px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #00008B;
 }
 
 #friendImage {
     width: 100%;
     height: auto;
+}
+
+#surveyPanel {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #00008B;
+}
+
+#surveyBtn {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #00008B;
 }

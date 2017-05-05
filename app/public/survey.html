@@ -23,7 +23,7 @@
             <hr>
             <div class='row'>
                 <div class='col-sm-12'>
-                    <div class='panel panel-default'>
+                    <div class='panel panel-info' id="surveyPanel">
                         <div class='panel-heading'>
                             <h3 class='panel-title'>About You</h3>
                         </div>
@@ -31,11 +31,11 @@
                             <form>
                                 <div class='form-group'>
                                     <label for='name'>Name</label>
-                                    <input type="text" class="form-control" id="name">
+                                    <input type="text" class="form-control" id="name" placeholder=' e.g. Jane Smith'>
                                 </div>
                                 <div class='form-group'>
                                     <label for='photo'>Link to Photo Image</label>
-                                    <input type="text" class="form-control" id="photoLink">
+                                    <input type="text" class="form-control" id="photoLink" placeholder=' e.g. http://static.boredpanda.com/blog/wp-content/uuuploads/cute-baby-animals-2/cute-baby-animals-2-2.jpg'>
                                 </div>
                                 <hr>
                                 <div class='form-group'>
@@ -159,7 +159,7 @@
                                     <h3>Question 10</h3>
                                     <label for='name'>Your work style is closer to random energy spikes than to a methodical and organized approach</label>
                                     <br>
-                                    <select name='questionTen' id='questionTen' class='required'>
+                                    <select name='questionTen' id='questionTen' required>
                                         <option value="" disabled selected>Select An Option</option>
                                         <option value='1'>1 (Strongly Disagree)</option>
                                         <option value='2'>2</option>
@@ -179,11 +179,11 @@
                     <div class='modal-content'>
                         <div class='modal-header'>
                             <button type='button' class='close' data-dismiss='modal'>x</button>
-                            <h2 class='modal-title'>Your New Best Friend!</h2>
+                            <h2 class='modal-title'>You Are the First Applicant!</h2>
                         </div>
                         <div class='modal-body'>
                             <h2 id='friendName'></h2>
-                            <img id='friendImage' src='#'>
+                            <img id='friendImage' src='http://mmfelix.files.wordpress.com/2012/01/a-beagle-puppy-pointing.jpg' alt="New Best Friend">
                         </div>
                         <div class='modal-footer'>
                             <button type='button' class='btn bn-default' data-dismiss='modal'>Close</button>
@@ -194,7 +194,7 @@
         </div>
         <footer id="surveyFooter">
             <a href="/api/friends" id="friendsApi">API Friends List</a> |
-            <a href="#">GitHub Repo</a>
+            <a href="https://github.com/Sam-Marshall/FriendFinder" target="_blank">GitHub Repo</a>
         </footer>
     </div>
     <script type="text/javascript">
@@ -229,6 +229,10 @@
                 $('#friendName').html(bestFriendName);
                 $('#friendImage').attr("src", bestFriendPicture);
                 $('#resultsModal').modal('toggle');
+
+                if (data.toString() !== 'You are the first applicant!') {
+                    $('.modal-title').html('Your New Best Friend!');
+                }
 
             });
         } else {
